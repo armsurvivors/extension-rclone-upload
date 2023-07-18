@@ -1,0 +1,18 @@
+[objectstore]
+type = s3
+secret_access_key = MY_PASSWORD
+no_head_object = false
+chunk_size = 200M
+upload_concurrency = 4
+region = us-east-1
+provider = Minio
+endpoint = https://minio.example.com
+access_key_id = MY_ID
+
+[nas]
+type = smb
+host = nas.example.com
+user = abf_artifacts
+pass = SomeHash
+domain = MYDOMAIN
+
