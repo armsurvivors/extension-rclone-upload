@@ -15,7 +15,7 @@ function post_build_image__upload_local_with_rclone_010() {
 }
 
 function post_build_image__upload_local_with_rclone_050() {
-	if [[ -n ${RCLONE_LOCAL_TARGET} ]]; then
+	if [[ -n ${RCLONE_LOCAL_TARGET} && ${ARMBIAN_COMMAND} == "build" ]]; then
 		declare -g RCLONE_LOG_LEVEL=${RCLONE_LOG_LEVEL:-INFO}
 		declare -g RCLONE_LOCAL_CONFIG_NAME="${RCLONE_LOCAL_CONFIG_NAME:-rclone.conf}"
 		local RCLONE_CONFIG_PATH="${EXTENSION_DIR}/config/${RCLONE_LOCAL_CONFIG_NAME}"
@@ -26,7 +26,7 @@ function post_build_image__upload_local_with_rclone_050() {
 }
 
 function run_after_build__upload_publish_with_rclone_20() {
-	if [[ -n ${RCLONE_PUBLISH_TARGET} && ${RCLONE_PUBLISH=-no} == "yes" ]]; then
+	if [[ -n ${RCLONE_PUBLISH_TARGET} && ${RCLONE_PUBLISH=-no} == "yes" && ${ARMBIAN_COMMAND} == "build" ]]; then
 
 		declare -g RCLONE_LOG_LEVEL=${RCLONE_LOG_LEVEL:-INFO}
 		
